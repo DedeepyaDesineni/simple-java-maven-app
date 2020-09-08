@@ -14,7 +14,7 @@ pipeline {
             agent none
             steps {
                 script {
-                    def deployment = input id: 'Deploy', message: 'Ready to go?', submitter: 'Dedeepya', description: 'Ready for deployment?', name: 'deploymentapproval')]
+                    def deployment = input id: 'Deploy', message: 'Ready to go?', submitter: 'Dedeepya', description: 'Ready for deployment?', name: 'deploymentapproval']
                 }
             }
         }
