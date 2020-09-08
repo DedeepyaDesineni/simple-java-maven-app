@@ -14,7 +14,8 @@ pipeline {
             agent none
             steps {
                 script {
-                    def deploymentDelay = input id: 'Deploy', message: 'Ready to go?', submitter: 'Dedeepya', parameters: [choice(choices: ['Proceed','Abort'])]
+                    def deploymentDelay = input id: 'Deploy', message: 'Ready to go?', submitter: 'Dedeepya', parameters: [choice(choices: ['Proceed','Abort'],description: 'Hours to delay deployment?', name: 'deploymentDelay')]
+                    sleep time: deploymentDelay.toInteger(), unit: 'HOURS'
                 }
             }
         }
