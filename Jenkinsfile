@@ -9,8 +9,14 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Deploy approval'){
-            input "Deploy to prod?"
+       stage('Approval') {
+            // no agent, so executors are not used up when waiting for approvals
+            agent none
+            steps {
+                script {
+                    def deployment = input id: 'Deploy', message: 'Ready to go?', submitter: 'Dedeepya', description: 'Ready for deployment?', name: 'deploymentapproval')]
+                }
+            }
         }
         stage('Build') {
             steps {
